@@ -28,3 +28,60 @@ composer require mailmug/zentropy-php
 ## Usage
 
 ### TCP Connection (with optional password)
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Zentropy\Client;
+
+$client = Client::tcp('127.0.0.1', 6383, 'pass@123');
+
+$client->set('foo', 'bar');
+echo $client->get('foo'); // Outputs: bar
+$client->close();
+```
+
+### Unix Socket Connection
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Zentropy\Client;
+
+$client = Client::unixSocket('/tmp/zentropy.sock');
+
+$client->set('foo', 'bar');
+echo $client->get('foo'); // Outputs: bar
+$client->close();
+```
+
+## API Reference
+| Method                                 | Description                                                  |
+| -------------------------------------- | ------------------------------------------------------------ |
+| `Client::tcp($host, $port, $password)` | Create a TCP client with optional password.                  |
+| `Client::unixSocket($path)`            | Create a client using a Unix socket.                         |
+| `set(string $key, string $value)`      | Set a key-value pair.                                        |
+| `get(string $key)`                     | Get the value of a key. Returns `null` if key doesn't exist. |
+| `delete(string $key)`                  | Delete a key. Returns `true` if successful.                  |
+| `exists(string $key)`                  | Check if a key exists.                                       |
+| `ping()`                               | Ping the server. Returns `true` if alive.                    |
+| `close()`                              | Close the connection.                                        |
+| `auth(string $password)`               | Authenticate TCP connection (internal for TCP only).         |
+
+
+## Running Examples
+
+
+## Contributing
+
+1. Fork the repository.
+
+2. Run composer install.
+
+3. Add tests in tests/ and examples in examples/.
+
+4. Submit a pull request.
