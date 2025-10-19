@@ -41,6 +41,7 @@ $client = Client::tcp('127.0.0.1', 6383, 'pass@123');
 $client->set('foo', 'bar');
 echo $client->get('foo'); // Outputs: bar
 $client->close();
+
 ```
 
 ### Unix Socket Connection
