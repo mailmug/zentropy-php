@@ -1,0 +1,25 @@
+# Composer
+/vendor/
+/composer.lock
+
+# PHPUnit / test outputs
+/tests/_output/
+/tests/_temp/
+
+# IDE / editor files
+*.idea/
+*.vscode/
+*.sublime-project
+*.sublime-workspace
+*.phpstorm.meta.php
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# PHPStorm / other cache
+/.phpunit.result.cache
+/.phpunit.cache

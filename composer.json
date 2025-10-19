@@ -1,0 +1,30 @@
+{
+    "name": "mailmug/zentropy-php",
+    "description": "PHP client for Zentropy server",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MailMug",
+            "email": "info@mailmug.net"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zentropy\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zentropy\\Tests\\": "tests/"
+        }
+    },
+    "keywords": ["zentropy", "redis", "caching", "database", "cache", "in-memory", "in-memory-database", "key-value-store"],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^12.4"
+    }
+}
