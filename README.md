@@ -1,7 +1,7 @@
 # Zentropy PHP Client
 
-[![Packagist Version](https://img.shields.io/packagist/v/mailmug/zentropy-php)](https://packagist.org/packages/mailmug/zentropy-php)
-[![License](https://img.shields.io/packagist/l/mailmug/zentropy-php)](LICENSE)
+<a href="https://packagist.org/packages/mailmug/zentropy-php"><img src="https://img.shields.io/packagist/v/mailmug/zentropy-php" alt="Latest Stable Version"></a><a href="LICENSE"><img src="https://badgen.net/github/license/mailmug/zentropy" /></a>
+
 
 A simple and professional PHP client for **[Zentropy](https://github.com/mailmug/zentropy)**. Supports **TCP connections with authentication** and **Unix socket connections**.
 
