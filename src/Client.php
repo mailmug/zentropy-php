@@ -71,6 +71,16 @@ class Client
         return $this->_send("SET $key '$value'") === '+OK';
     }
 
+    public function setEx(string $key, string $value, int $seconds): bool
+    {
+        return $this->_send("SETEX $key $seconds '$value'") === '+OK';
+    }
+
+    public function setPx(string $key, string $value, int $milliseconds): bool
+    {
+        return $this->_send("SET $key '$value' PX $milliseconds") === '+OK';
+    }
+
     public function get(string $key): ?string
     {
         $resp = $this->_send("GET $key");
