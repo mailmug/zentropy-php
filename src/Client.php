@@ -40,7 +40,21 @@ class Client
     private function _send(string $cmd): string
     {
         $this->conn->send($cmd . "\n");
-        return trim($this->conn->recv());
+        $resp = trim($this->conn->recv());
+
+        if (strlen($resp) > 0 && $resp[0] === '$') {
+            // read length
+            $len = (int)substr($resp, 1);
+            if ($len === -1) {
+                return 'NONE';  
+            }
+
+            // Read actual data
+            $data = trim($this->conn->recv($len + 2)); // +2 for CRLF
+            return $data;
+        }
+
+        return $resp;
     }
 
     public function auth(string $password): bool
