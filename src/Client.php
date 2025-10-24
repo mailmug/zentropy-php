@@ -73,7 +73,7 @@ class Client
 
     public function setEx(string $key, string $value, int $seconds): bool
     {
-        return $this->_send("SETEX $key $seconds '$value'") === '+OK';
+        return $this->_send("SET $key '$value' EX $seconds") === '+OK';
     }
 
     public function setPx(string $key, string $value, int $milliseconds): bool
