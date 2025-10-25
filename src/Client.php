@@ -77,27 +77,19 @@ class Client
     public function delete(string $key): bool
     {
         $resp = $this->_send("DELETE $key");
-
-        if (strlen($resp) > 0 && $resp[0] === ':') {
-            $resp = substr($resp, 1);
-        }
-
         return trim($resp) === '1';
     }
 
     public function exists(string $key): bool
     {
         $resp = $this->_send("EXISTS $key");
-
-        if (strlen($resp) > 0 && $resp[0] === ':') {
-            $resp = substr($resp, 1);
-        }
+       
         return trim($resp) === '1';
     }
 
     public function ping(): bool
     {
-        return $this->_send("PING") === '+PONG';
+        return $this->_send("PING") === 'PONG';
     }
 
     public function close(): void
