@@ -7,7 +7,7 @@ use Zentropy\Exceptions\AuthException;
 
 try {
     // Connect to Zentropy server
-    $client = Client::tcp('127.0.0.1', 6383, 'pass@123');
+    $client = Client::tcp('127.0.0.1', 6383);
 
     // Ping server
     if ($client->ping()) {

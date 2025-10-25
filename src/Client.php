@@ -40,7 +40,7 @@ class Client
     private function _send(string $cmd): ?string
     {
         $this->conn->send($cmd . "\n");
-        $resp =$this->conn->recv();  
+        $resp = $this->conn->recv();  
         return $resp;
     }
 
@@ -77,19 +77,19 @@ class Client
     public function delete(string $key): bool
     {
         $resp = $this->_send("DELETE $key");
-        return trim($resp) === '1';
+        return $resp === '1';
     }
 
     public function exists(string $key): bool
     {
         $resp = $this->_send("EXISTS $key");
        
-        return trim($resp) === '1';
+        return $resp === '1';
     }
 
     public function ping(): bool
     {
-        return $this->_send("PING") === 'PONG';
+        return $this->_send("PING") === '+PONG';
     }
 
     public function close(): void
