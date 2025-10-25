@@ -30,7 +30,7 @@ class Connection
     }
 
     public function recv()
-    {   
+    {  
         if (!is_resource($this->socket)) {
             throw new Exception("Cannot receive data: socket is invalid");
         }
@@ -43,7 +43,7 @@ class Connection
         $line = rtrim($line, "\r\n");
         $prefix = $line[0];
         $data = substr($line, 1);
-
+        
         switch ($prefix) {
             case '+': // Simple String
                 return $data;
@@ -83,7 +83,6 @@ class Connection
             $data .= $chunk;
             $remaining -= strlen($chunk);
         }
-
         return rtrim($data, "\r\n");
     }
 

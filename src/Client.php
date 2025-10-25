@@ -32,15 +32,15 @@ class Client
      * Create a client using Unix socket (no auth required)
      */
     public static function unixSocket(string $path): self
-    {
+    {  
         $conn = new Connection(null, null, $path);
-        return new self($conn);
+        return new self($conn); 
     }
 
     private function _send(string $cmd): ?string
-    {
+    { 
         $this->conn->send($cmd . "\n");
-        $resp = $this->conn->recv();  
+        $resp = $this->conn->recv(); 
         return $resp;
     }
 
@@ -69,7 +69,7 @@ class Client
     }
 
     public function get(string $key): ?string
-    {
+    {    
         $resp = $this->_send("GET $key");
         return $resp;
     }
