@@ -39,7 +39,7 @@ class Client
 
     private function _send(string $cmd): ?string
     {
-        $this->conn->send($cmd . "\n");
+        $this->conn->send($cmd);
         $resp = $this->conn->recv();  
         return $resp;
     }
@@ -47,7 +47,7 @@ class Client
     public function auth(string $password): bool
     {
         $resp = $this->_send("AUTH $password");
-        if ($resp !== '+OK') {
+        if ($resp !== 'OK') {
             throw new AuthException("Authentication failed: $resp");
         }
         return true;

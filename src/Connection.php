@@ -26,7 +26,8 @@ class Connection
         if (!is_resource($this->socket)) {
             throw new Exception("Cannot send data: socket is invalid");
         }
-        fwrite($this->socket, $data);
+        fwrite($this->socket, '$'.strlen($data) . "\r\n");
+        fwrite($this->socket, $data ."\r\n");
     }
 
     public function recv()
